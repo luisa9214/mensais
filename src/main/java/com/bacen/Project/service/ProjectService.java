@@ -18,6 +18,7 @@ public class ProjectService {
     private MensaisRepository mensaisRepository;
 
     public String dadosBacen() {
+
         var dadosMensais = mensaisClient.getAllData().getDadosMensaisDtos();
 
         for (var i = 0; i < dadosMensais.size(); i++) {
