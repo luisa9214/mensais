@@ -17,5 +17,5 @@ public class RootDto {
 @JsonProperty("@odata.context")
 private String oDataContext;
 @JsonProperty(value ="value")
-public List<DadosMensaisDto> dadosMensaisDtos;
+public List<RequestDto> requestDtos;
 }
