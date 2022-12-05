@@ -55,6 +55,7 @@ public class MensaisService {
         MensaisEntity mensaisEntity = mensaisRepository.findById(id).orElse(null);
         var updateEntity = new MensaisEntity();
         BeanUtils.copyProperties(requestDto, updateEntity);
+        updateEntity.setId(id);
         mensaisRepository.save(updateEntity);
         var responseUpdate = new ResponseDto();
         BeanUtils.copyProperties(updateEntity, responseUpdate, "id");
