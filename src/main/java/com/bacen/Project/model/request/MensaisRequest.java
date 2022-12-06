@@ -1,4 +1,4 @@
-package com.bacen.Project.model.dto;
+package com.bacen.Project.model.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class RequestDto {
+public class MensaisRequest {
 
     @JsonProperty("Indicador")
     public String indicador;

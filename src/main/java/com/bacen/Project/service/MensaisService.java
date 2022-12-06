@@ -1,7 +1,7 @@
 package com.bacen.Project.service;
 
-import com.bacen.Project.model.dto.RequestDto;
-import com.bacen.Project.model.dto.ResponseDto;
+import com.bacen.Project.model.request.MensaisRequest;
+import com.bacen.Project.model.response.MensaisResponse;
 import com.bacen.Project.model.entities.MensaisEntity;
 import com.bacen.Project.model.repositories.MensaisClient;
 import com.bacen.Project.model.repositories.MensaisRepository;
@@ -25,7 +25,7 @@ public class MensaisService {
     private MensaisRepository mensaisRepository;
 
     public String dadosBacen() {
-        var dadosMensais = mensaisClient.getAllData().getRequestDtos();
+        var dadosMensais = mensaisClient.getAllData().getMensaisRequests();
         for (var i = 0; i < dadosMensais.size(); i++) {
             var mensaisEntity = new MensaisEntity();
             var dado = dadosMensais.get(i);
@@ -35,12 +35,12 @@ public class MensaisService {
         return "dados salvos com sucesso";
     }
 
-    public ResponseDto salvarMensais(RequestDto requestDto) {
+    public MensaisResponse salvarMensais(MensaisRequest mensaisRequest) {
         var model = new MensaisEntity();
-        BeanUtils.copyProperties(requestDto, model);
+        BeanUtils.copyProperties(mensaisRequest, model);
         mensaisRepository.save(model);
-        var response = new ResponseDto();
-        BeanUtils.copyProperties(requestDto, response);
+        var response = new MensaisResponse();
+        BeanUtils.copyProperties(mensaisRequest, response);
         return response;
     }
 
@@ -50,42 +50,41 @@ public class MensaisService {
         }
     }
 
-    public ResponseDto findByIdMensais(Long id) {
+    public MensaisResponse findByIdMensais(Long id) {
         MensaisEntity mensaisEntity = mensaisRepository.findById(id).orElse(null);
-        var responseById = new ResponseDto();
+        var responseById = new MensaisResponse();
         BeanUtils.copyProperties(mensaisEntity, responseById);
         return responseById;
     }
 
-    public ResponseDto updateMensais(RequestDto requestDto, Long id) {
+    public MensaisResponse updateMensais(MensaisRequest mensaisRequest, Long id) {
         var updateEntity = new MensaisEntity();
-        BeanUtils.copyProperties(requestDto, updateEntity);
+        BeanUtils.copyProperties(mensaisRequest, updateEntity);
         updateEntity.setId(id);
         mensaisRepository.save(updateEntity);
-        var responseUpdate = new ResponseDto();
+        var responseUpdate = new MensaisResponse();
         BeanUtils.copyProperties(updateEntity, responseUpdate, "id");
         return responseUpdate;
     }
 
-    public List<ResponseDto> getMensaisByData(String mensaisDataReferencia){
+    public List<MensaisResponse> getMensaisByData(String mensaisDataReferencia){
         List<MensaisEntity> mensaisEntityReferencia = mensaisRepository.findAllByData(mensaisDataReferencia);
         var listaResponse = mensaisEntityReferencia.stream().map(mensais ->{
-            var responseData = new ResponseDto();
+            var responseData = new MensaisResponse();
             BeanUtils.copyProperties(mensais, responseData);
             return responseData;
         }).collect(Collectors.toList());
             return listaResponse;
     }
 
-    public Page<ResponseDto> getAllMensais(Pageable pageable) {
+    public Page<MensaisResponse> getAllMensais(Pageable pageable) {
         var listaEntity = mensaisRepository.findAll(pageable);
         var listaResponsePage = listaEntity.getContent();
         var listaResponseAll = listaResponsePage.stream().map(mensais -> {
-            var responseMensais = new ResponseDto();
+            var responseMensais = new MensaisResponse();
             BeanUtils.copyProperties(mensais, responseMensais);
             return responseMensais;
         }).collect(Collectors.toList());
             return new PageImpl<>(listaResponseAll);
     }
-
 }

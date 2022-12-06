@@ -1,7 +1,7 @@
 package com.bacen.Project.controller;
 
-import com.bacen.Project.model.dto.RequestDto;
-import com.bacen.Project.model.dto.ResponseDto;
+import com.bacen.Project.model.request.MensaisRequest;
+import com.bacen.Project.model.response.MensaisResponse;
 import com.bacen.Project.service.MensaisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -23,8 +23,8 @@ public class MensaisController {
     }
 
     @PostMapping("/saveMensais")
-    public ResponseDto saveMensais(@RequestBody RequestDto requestDto) {
-        return mensaisService.salvarMensais(requestDto);
+    public MensaisResponse saveMensais(@RequestBody MensaisRequest mensaisRequest) {
+        return mensaisService.salvarMensais(mensaisRequest);
     }
 
     @DeleteMapping("/deleteMensais/{id}")
@@ -33,22 +33,22 @@ public class MensaisController {
     }
 
     @GetMapping("/getByIdMensais/{id}")
-    public ResponseDto getByIdMensais(@PathVariable("id") Long id) {
+    public MensaisResponse getByIdMensais(@PathVariable("id") Long id) {
         return mensaisService.findByIdMensais(id);
     }
 
     @PutMapping("/updateMensais/{id}")
-    public ResponseDto updateMensais(@RequestBody RequestDto requestDto, @PathVariable("id") Long id) {
-        return mensaisService.updateMensais(requestDto, id);
+    public MensaisResponse updateMensais(@RequestBody MensaisRequest mensaisRequest, @PathVariable("id") Long id) {
+        return mensaisService.updateMensais(mensaisRequest, id);
     }
 
     @GetMapping("/getMensaisReferencia")
-    public List<ResponseDto> getMensaisReferencia(@RequestParam("mensaisDataReferencia") String mensaisReferencia){
+    public List<MensaisResponse> getMensaisReferencia(@RequestParam("mensaisDataReferencia") String mensaisReferencia){
         return mensaisService.getMensaisByData(mensaisReferencia);
     }
 
     @GetMapping("/getAllMensais")
-    public Page<ResponseDto> getAllMensais(Pageable pageable){
+    public Page<MensaisResponse> getAllMensais(Pageable pageable){
         return mensaisService.getAllMensais(pageable);
     }
 }

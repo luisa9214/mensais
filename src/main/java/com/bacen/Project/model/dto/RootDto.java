@@ -1,6 +1,7 @@
 package com.bacen.Project.model.dto;
 
 
+import com.bacen.Project.model.request.MensaisRequest;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,5 +18,5 @@ public class RootDto {
 @JsonProperty("@odata.context")
 private String oDataContext;
 @JsonProperty(value ="value")
-public List<RequestDto> requestDtos;
+public List<MensaisRequest> mensaisRequests;
 }
