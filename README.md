@@ -36,20 +36,20 @@ Inserir a URL localhost:8080/mensaisClient
 ## POST
 Acessar a URL localhost:8080/mensaisClient/saveMensais, a função do método é salvar os dados no banco. No campo Json inserir as informações a serem salvas no banco de dados e clicar em SEND.
 
-DELETE
+## DELETE
 Acessar a URL localhost:8080/mensaisClient/deleteMensais/{id}, a função é excluir informações do banco de dados. Informar o ID do registro que será excluído após a última barra ("/"), também é necessário apagar as chaves ("{}"). Clicar em SEND
 
 
-GET BY ID
+## GET BY ID
 Acessar a URL localhost:8080/mensaisClient/getByIdMensais/{id}, a função é buscar informações por ID de registro no banco de dados. Informar o ID registro de busca no banco de dados após a última barra ("/"), também é necessário apagar as chaves ("{}"). Clicar em SEND
 
-UPDATE
+## UPDATE
 Acessar a URL localhost:8080/mensaisClient/updateMensais/{id}, a função é autalizar informações já existentes no banco de dados. Informar o ID do registro existente que será atualizado após a última barra ("/"), também é necessário apagar as chaves ("{}"). No campo Json inserir as informações a serem salvas no banco de dados e clicar em SEND.
 
-GET DATA REFERÊNCIA
+## GET DATA REFERÊNCIA
 Acessar a URL localhost:8080/mensaisClient/getMensaisReferencia?mensaisDataReferencia={inserir data}, a função é buscar informações por data de referência. Informar a data nom formato MM/AAAA, é necessário remover as chaves ({}). Clicar em SEND.
 
-GET ALL
+## GET ALL
 Acessar a página localhost:8080/mensaisClient/getAllMensais?page=0, a função é retornar todos os registros do banco de dados com paginação. No parâmetro page é necessário informar a página, iniciar com 0 e seguir atualizando a URL em ordem crescente para as buscas nas páginas seguintes. Cada página retorna 20 registros. Clicar em SEND.
 
 
