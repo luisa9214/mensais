@@ -33,38 +33,38 @@ Executar a classe ProjectAplication
 Inserir a URL localhost:8080/mensaisClient
 
 ## Executando Métodos no Insomnia
-###POST
+## POST
 localhost:8080/mensaisClient/saveMensais
 Salva informações no banco de dados
 No campo Json inserir as informações a serem salvas no banco de dados
 Send
 
-###DELETE
+DELETE
 localhost:8080/mensaisClient/deleteMensais/{id}
 Exclui informação do banco de dados
 Informar o ID do registro que será excluído após a última barra ("/"), também é necessário apagar as chaves ("{}")
 Send
 
-###GET BY ID
+GET BY ID
 localhost:8080/mensaisClient/getByIdMensais/{id}
 Busca informações por ID de registro
 Informar o ID registro de busca no banco de dados após a última barra ("/"), também é necessário apagar as chaves ("{}")
 Send
 
-###UPDATE
+UPDATE
 localhost:8080/mensaisClient/updateMensais/{id}
 Atualiza informações já existentes no banco de dados
 Informar o ID do registro existente que será atualizado após a última barra ("/"), também é necessário apagar as chaves ("{}")
 No campo Json inserir as informações a serem salvas no banco de dados
 Send
 
-###GET DATA REFERÊNCIA
+GET DATA REFERÊNCIA
 localhost:8080/mensaisClient/getMensaisReferencia?mensaisDataReferencia={inserir data}
 Busca informações por data de referência 
 Informar a data nom formato MM/AAAA, é necessário remover as chaves ({})
 Send
 
-###GET ALL
+GET ALL
 localhost:8080/mensaisClient/getAllMensais?page=0
 Retorna todos os registros do banco de dados com paginação 
 No parâmetro page é necessário informar a página, iniciar com 0 e seguir atualizando a URL em ordem crescente para as buscas nas páginas seguintes. Cada página retorna 20 registros.
