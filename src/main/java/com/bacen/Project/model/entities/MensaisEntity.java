@@ -13,10 +13,9 @@ import javax.persistence.*;
 @Table(name = "expectativas_mensais")
 public class MensaisEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private Long id;
         @JsonProperty("Indicador")
         public String indicador;
         @JsonProperty("Data")
@@ -35,5 +34,4 @@ public class MensaisEntity {
         public double maximo;
         public int numeroRespondentes;
         public int baseCalculo;
-
 }
