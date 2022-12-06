@@ -10,8 +10,7 @@ A aplicação consiste em uma pesquisa de dados econômicos públicos, os dados 
 ## Layout web
 <img width="753" alt="image" src="https://user-images.githubusercontent.com/106829344/205995079-0aaa839d-5ea0-45d8-a89b-39ed0e3299ad.png">
 
-[Web 2]
-<img width="649" alt="image" src="https://user-images.githubusercontent.com/106829344/205995346-7644645b-1ff1-4696-a082-5982b9b67bca.png">
+
 
 
 # Tecnologias utilizadas
