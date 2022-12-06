@@ -7,7 +7,13 @@ import com.bacen.Project.model.repositories.MensaisClient;
 import com.bacen.Project.model.repositories.MensaisRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class MensaisService {
@@ -52,7 +58,6 @@ public class MensaisService {
     }
 
     public ResponseDto updateMensais(RequestDto requestDto, Long id) {
-        MensaisEntity mensaisEntity = mensaisRepository.findById(id).orElse(null);
         var updateEntity = new MensaisEntity();
         BeanUtils.copyProperties(requestDto, updateEntity);
         updateEntity.setId(id);
@@ -61,4 +66,26 @@ public class MensaisService {
         BeanUtils.copyProperties(updateEntity, responseUpdate, "id");
         return responseUpdate;
     }
+
+    public List<ResponseDto> getMensaisByData(String mensaisDataReferencia){
+        List<MensaisEntity> mensaisEntityReferencia = mensaisRepository.findAllByData(mensaisDataReferencia);
+        var listaResponse = mensaisEntityReferencia.stream().map(mensais ->{
+            var responseData = new ResponseDto();
+            BeanUtils.copyProperties(mensais, responseData);
+            return responseData;
+        }).collect(Collectors.toList());
+            return listaResponse;
+    }
+
+    public Page<ResponseDto> getAllMensais(Pageable pageable) {
+        var listaEntity = mensaisRepository.findAll(pageable);
+        var listaResponsePage = listaEntity.getContent();
+        var listaResponseAll = listaResponsePage.stream().map(mensais -> {
+            var responseMensais = new ResponseDto();
+            BeanUtils.copyProperties(mensais, responseMensais);
+            return responseMensais;
+        }).collect(Collectors.toList());
+            return new PageImpl<>(listaResponseAll);
+    }
+
 }
