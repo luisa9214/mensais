@@ -45,9 +45,8 @@ public class MensaisService {
     }
 
     public void deleteMensais(Long id) {
-        if (mensaisRepository.existsById(id)) {
-            mensaisRepository.deleteById(id);
-        }
+        mensaisRepository.existsById(id);
+        mensaisRepository.deleteById(id);
     }
 
     public MensaisResponse findByIdMensais(Long id) {
