@@ -37,11 +37,11 @@ Inserir a URL localhost:8080/mensaisClient
 Acessar a URL localhost:8080/mensaisClient/saveMensais, a função do método é salvar os dados no banco. No campo Json inserir as informações a serem salvas no banco de dados e clicar em SEND.
 
 ## DELETE
-Acessar a URL localhost:8080/mensaisClient/deleteMensais/{id}, a função é excluir informações do banco de dados. Informar o ID do registro que será excluído após a última barra ("/"), também é necessário apagar as chaves ("{}"). Clicar em SEND
+Acessar a URL localhost:8080/mensaisClient/deleteMensais/{id}, a função é excluir informações do banco de dados. Informar o ID do registro que será excluído após a última barra ("/"), também é necessário apagar as chaves ("{}"). Clicar em SEND.
 
 
 ## GET BY ID
-Acessar a URL localhost:8080/mensaisClient/getByIdMensais/{id}, a função é buscar informações por ID de registro no banco de dados. Informar o ID registro de busca no banco de dados após a última barra ("/"), também é necessário apagar as chaves ("{}"). Clicar em SEND
+Acessar a URL localhost:8080/mensaisClient/getByIdMensais/{id}, a função é buscar informações por ID de registro no banco de dados. Informar o ID registro de busca no banco de dados após a última barra ("/"), também é necessário apagar as chaves ("{}"). Clicar em SEND.
 
 ## UPDATE
 Acessar a URL localhost:8080/mensaisClient/updateMensais/{id}, a função é autalizar informações já existentes no banco de dados. Informar o ID do registro existente que será atualizado após a última barra ("/"), também é necessário apagar as chaves ("{}"). No campo Json inserir as informações a serem salvas no banco de dados e clicar em SEND.
